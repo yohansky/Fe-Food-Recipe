@@ -41,9 +41,11 @@ const Login = () => {
                   ))}
                 </Form>
                 <div className="mb-2">
-                  <Button variant="warning" size="lg" style={{ width: "426px" }}>
-                    Log in
-                  </Button>
+                  <Link to={"/home"}>
+                    <Button variant="warning" size="lg" style={{ width: "426px" }}>
+                      Log in
+                    </Button>
+                  </Link>
                   <Link to={"/auth/Forgot"}>
                     <p className="mt-2 text-secondary" style={{ textAlign: "right" }}>
                       Forgot Password
