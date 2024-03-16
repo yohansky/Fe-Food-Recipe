@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../../assets/logo.png";
 import logobg from "../../../assets/img/bglogin.png";
 import { Button, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -43,8 +44,16 @@ const Login = () => {
                   <Button variant="warning" size="lg" style={{ width: "426px" }}>
                     Log in
                   </Button>
-                  <p className="mt-2" style={{ textAlign: "right" }}>
-                    Forgot Password
+                  <Link to={"/auth/Forgot"}>
+                    <p className="mt-2 text-secondary" style={{ textAlign: "right" }}>
+                      Forgot Password
+                    </p>
+                  </Link>
+                  <p className="mt-2" style={{ textAlign: "center" }}>
+                    Don't have an account?
+                    <Link to={"/auth/Register"}>
+                      <a style={{ color: "yellow" }}>Sign up</a>
+                    </Link>
                   </p>
                 </div>
               </div>
