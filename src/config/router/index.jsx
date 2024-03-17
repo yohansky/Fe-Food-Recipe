@@ -5,6 +5,9 @@ import Home from "../../pages/home";
 import Forgot from "../../pages/auth/Forgot";
 import Confirm from "../../pages/auth/Confirm";
 import Register from "../../pages/auth/Register";
+import AddRecipe from "../../pages/addRecipe";
+import DetailRecipe from "../../pages/detailRecipe";
+import Profile from "../../pages/profile";
 
 const Router = () => {
   return (
@@ -17,6 +20,9 @@ const Router = () => {
           <Route path="/auth/Register" element={<Register />} />
           <Route path="/auth/Confirm" element={<Confirm />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/addRecipe" element={<AddRecipe />} />
+          <Route path="/detailRecipe" element={<DetailRecipe />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>

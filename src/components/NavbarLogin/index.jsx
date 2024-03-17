@@ -9,13 +9,13 @@ const NavbarLogin = () => {
       <Navbar className="fixed-top">
         <Nav className="me-auto mt-4" style={{ marginLeft: "100px" }}>
           <Nav.Link href="" className="" style={{ color: "#2E266F", fontSize: "18px" }}>
-            Home
+            <Link to={"/home"}>Home</Link>
           </Nav.Link>
           <Nav.Link href="" className="ml-5" style={{ color: "#2E266F", fontSize: "18px" }}>
-            Add Recipe
+            <Link to={"/addRecipe"}>Add Recipe</Link>
           </Nav.Link>
           <Nav.Link href="" className="ml-5" style={{ color: "#2E266F", fontSize: "18px" }}>
-            Profile
+            <Link to={"/profile"}>Profile</Link>
           </Nav.Link>
           <Nav.Link href="" style={{ marginLeft: "1150px" }}>
             <img src={profilephoto} alt="profile" />
