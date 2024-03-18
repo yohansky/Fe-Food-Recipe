@@ -1,0 +1,3 @@
+[submodule "fe-food-recipe"]
+	path = fe-food-recipe
+	url = https://github.com/UiraAlfaZ/fe-food-recipe.git
