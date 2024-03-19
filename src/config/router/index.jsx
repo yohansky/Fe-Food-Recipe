@@ -8,6 +8,7 @@ import Register from "../../pages/auth/Register";
 import AddRecipe from "../../pages/addRecipe";
 import DetailRecipe from "../../pages/detailRecipe";
 import Profile from "../../pages/profile";
+import ResetPassword from "../../pages/auth/ResetPassword";
 
 const Router = () => {
   return (
@@ -23,6 +24,7 @@ const Router = () => {
           <Route path="/addRecipe" element={<AddRecipe />} />
           <Route path="/detailRecipe" element={<DetailRecipe />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/auth/ResetPassword" element={<ResetPassword />} />
         </Routes>
       </BrowserRouter>
     </div>

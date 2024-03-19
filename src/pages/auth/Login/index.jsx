@@ -19,7 +19,7 @@ const Login = () => {
           </div>
           <div className="d-flex justify-content-center">
             <div className="" style={{ marginTop: "350px", marginLeft: "230px" }}>
-              <h2 style={{ color: "EFC81A", textAlign: "center" }}>Welcome</h2>
+              <h2 style={{ color: "#EFC81A", textAlign: "center" }}>Welcome</h2>
               <h5 className="mt-3" style={{ color: "#8692A6", textAlign: "center" }}>
                 Log in into your exiting account
               </h5>
@@ -27,11 +27,11 @@ const Login = () => {
                 <Form>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>E-mail</Form.Label>
-                    <Form.Control size="lg" type="email" placeholder="name@example.com" style={{ border: "1px", width: "426px", height: "64px", paddingLeft: "30px" }} />
+                    <Form.Control size="lg" type="email" placeholder="name@example.com" style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }} />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control size="lg" type="password" placeholder="Password" style={{ border: "1px", width: "426px", height: "64px", paddingLeft: "30px" }} />
+                    <Form.Control size="lg" type="password" placeholder="Password" style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }} />
                   </Form.Group>
                   {["checkbox"].map((type) => (
                     <div key={`default-${type}`} className="mb-4 mt-4">

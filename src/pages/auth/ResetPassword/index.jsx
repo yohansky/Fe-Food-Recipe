@@ -4,10 +4,10 @@ import logobg from "../../../assets/img/bglogin.png";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Forgot = () => {
+const ResetPassword = () => {
   return (
     <>
-      <main id="forgot">
+      <main id="reset">
         <div className="row">
           <div className="col-6">
             <img src={logobg} alt="logobg" className="background-image" style={{ width: "960px", height: "1805px", position: "absolute", zIndex: "0", backgroundImage: "linear-gradient(#EFC81A, #EFC81A)" }} />
@@ -18,23 +18,27 @@ const Forgot = () => {
             </div>
           </div>
           <div className="d-flex justify-content-center">
-            <div className="" style={{ marginTop: "400px", marginLeft: "230px" }}>
-              <h2 style={{ color: "#EFC81A", textAlign: "center" }}>Forgot Password?</h2>
-              <h5 className="mt-3" style={{ color: "#8692A6", textAlign: "center" }}>
-                We just need your registered e-mail address<br></br>
-                to send your password resend
-              </h5>
+            <div className="" style={{ marginTop: "350px", marginLeft: "230px" }}>
               <div className="mt-4">
                 <Form>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>E-mail</Form.Label>
-                    <Form.Control size="lg" type="email" placeholder="name@example.com" style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }} />
+                    <Form.Label>Create New Password</Form.Label>
+                    <Form.Control size="lg" type="password" placeholder="" style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }} />
                   </Form.Group>
+                  <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>New Password</Form.Label>
+                    <Form.Control size="lg" type="password" placeholder="Password" style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }} />
+                  </Form.Group>
+                  {["checkbox"].map((type) => (
+                    <div key={`default-${type}`} className="mb-4 mt-4">
+                      <Form.Check type={type} id={`default-${type}`} label={`i agree to terms & conditions`} />
+                    </div>
+                  ))}
                 </Form>
                 <div className="mb-2">
-                  <Link to={"/auth/Confirm"}>
+                  <Link to={"/home"}>
                     <Button variant="warning" size="lg" style={{ width: "426px" }}>
-                      Send E-mail
+                      Reset Password
                     </Button>
                   </Link>
                 </div>
@@ -47,4 +51,4 @@ const Forgot = () => {
   );
 };
 
-export default Forgot;
+export default ResetPassword;
