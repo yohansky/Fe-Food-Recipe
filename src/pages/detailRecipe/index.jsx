@@ -26,7 +26,7 @@ const DetailRecipe = () => {
 
   return (
     <>
-      <NavbarLogin />
+      <NavbarProfile />
       DetailRecipe {id}
       {JSON.stringify(recipes)}
       <main id="detail">

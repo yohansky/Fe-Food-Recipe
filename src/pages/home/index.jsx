@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import bg2 from "../../assets/img/BG2.png";
 import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
@@ -9,11 +9,17 @@ import Discover from "../../components/Discover";
 import PopularForYou from "../../components/PopularForYou";
 import NewRecipe from "../../components/NewRecipe";
 import "../../assets/css/style.css";
+import NavbarProfile from "../../components/NavbarProfile";
 
 const Home = () => {
+  const [token, setToken] = useState("");
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  }, [token]);
+
   return (
     <div>
-      <NavbarLogin />
+      {token ? <NavbarProfile /> : <NavbarLogin />}
       <Discover />
       <img src={bg2} alt="background2" style={{ position: "absolute", marginTop: "850px" }} />
       <div className="row" style={{ marginTop: "1040px", position: "absolute", zIndex: "0" }}>

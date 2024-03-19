@@ -35,7 +35,7 @@ const AddRecipe = () => {
 
   return (
     <>
-      <NavbarLogin />
+      <NavbarProfile />
       <div style={{ marginTop: "208px", marginLeft: "310px" }}>
         <Form onSubmit={handleSubmit}>
           <div className="card" style={{ width: "1300px", height: "480px", backgroundColor: "#F6F5F4" }}>

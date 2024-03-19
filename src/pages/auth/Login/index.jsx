@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../../assets/logo.png";
 import logobg from "../../../assets/img/bglogin.png";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [token, setToken] = useState();
+  const navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setToken("token");
+    localStorage.setItem("token", Date.now());
+    navigate("/home");
+  }
+
+  useEffect(() => {
+    if (token) {
+      navigate("/home");
+    }
+  }, [token]);
+
   return (
     <>
       <main id="login">
@@ -24,7 +40,7 @@ const Login = () => {
                 Log in into your exiting account
               </h5>
               <div className="mt-4">
-                <Form>
+                <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>E-mail</Form.Label>
                     <Form.Control size="lg" type="email" placeholder="name@example.com" style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }} />
@@ -38,25 +54,25 @@ const Login = () => {
                       <Form.Check type={type} id={`default-${type}`} label={`i agree to terms & conditions`} />
                     </div>
                   ))}
-                </Form>
-                <div className="mb-2">
-                  <Link to={"/home"}>
-                    <Button variant="warning" size="lg" style={{ width: "426px" }}>
+
+                  <div className="mb-2">
+                    <Button type="submit" variant="warning" size="lg" style={{ width: "426px" }}>
                       Log in
                     </Button>
-                  </Link>
-                  <Link to={"/auth/Forgot"}>
-                    <p className="mt-2 text-secondary" style={{ textAlign: "right" }}>
-                      Forgot Password
-                    </p>
-                  </Link>
-                  <p className="mt-2" style={{ textAlign: "center" }}>
-                    Don't have an account?
-                    <Link to={"/auth/Register"}>
-                      <a style={{ color: "#EFC81A" }}>Sign up</a>
+
+                    <Link to={"/auth/Forgot"}>
+                      <p className="mt-2 text-secondary" style={{ textAlign: "right" }}>
+                        Forgot Password
+                      </p>
                     </Link>
-                  </p>
-                </div>
+                    <p className="mt-2" style={{ textAlign: "center" }}>
+                      Don't have an account?
+                      <Link to={"/auth/Register"}>
+                        <a style={{ color: "#EFC81A" }}>Sign up</a>
+                      </Link>
+                    </p>
+                  </div>
+                </Form>
               </div>
             </div>
           </div>

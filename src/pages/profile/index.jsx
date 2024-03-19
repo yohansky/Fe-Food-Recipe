@@ -1,23 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavbarLogin from "../../components/NavbarLogin";
 import profilepic from "../../assets/img/profilepic.png";
 import edit from "../../assets/img/edit.png";
-import { Button, Nav, Tab } from "react-bootstrap";
+import { Accordion, Button, Nav, Tab } from "react-bootstrap";
 import recipe1 from "../../assets/img/recipe10.png";
 import recipe2 from "../../assets/img/recipe11.png";
 import Footer from "../../components/Footer";
+import { useParams, Link } from "react-router-dom";
+import axios from "axios";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("link-1");
+  // const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://food-recipe-api-production.up.railway.app/api/v1/recipe/data`)
+      .then((res) => {
+        setRecipes(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div>
       <NavbarLogin />
       <div style={{ marginTop: "244px", marginLeft: "874px" }}>
         <img src={profilepic} alt="profilepic" />
-        <Button style={{ backgroundColor: "white", position: "absolute", height: "20px", borderColor: "white" }}>
-          <img src={edit} alt="edit" style={{ marginTop: "140px" }} />
-        </Button>
+        <Button style={{ backgroundColor: "white", position: "absolute", height: "20px", borderColor: "white" }}></Button>
+        <div style={{ marginTop: "20px", marginLeft: "50px" }}>
+          <Accordion>
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>Edit</Accordion.Header>
+              <Accordion.Body>Change Photo Profile</Accordion.Body>
+
+              <Accordion.Body>
+                <Link to={"/auth/ResetPassword"}>Change Password</Link>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+        </div>
         <h4 style={{ fontWeight: "500", fontSize: "24px", marginTop: "40px" }}>Garneta Sharina</h4>
       </div>
       {/*  */}
