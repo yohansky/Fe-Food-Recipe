@@ -8,6 +8,7 @@ import PopularRecipe from "../../components/PopularRecipe";
 import Discover from "../../components/Discover";
 import PopularForYou from "../../components/PopularForYou";
 import NewRecipe from "../../components/NewRecipe";
+import "../../assets/css/style.css";
 
 const Home = () => {
   return (
@@ -22,7 +23,7 @@ const Home = () => {
             <NewRecipe />
             <PopularRecipe />
           </div>
-          <div style={{ marginTop: "4248px" }}>
+          <div className="mb-4" style={{ marginTop: "4248px" }}>
             <Footer />
           </div>
         </div>

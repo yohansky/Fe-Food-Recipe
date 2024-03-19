@@ -2,6 +2,7 @@ import React from "react";
 import bg1 from "../../assets/img/BG.png";
 import sayur from "../../assets/img/makanan2.png";
 import makanan from "../../assets/img/makanan1.png";
+import search from "../../assets/img/searchbutton.png";
 
 const Discover = () => {
   return (
@@ -16,7 +17,7 @@ const Discover = () => {
               <div className="input-group mb-3">
                 <div className="input-group-prepend">
                   <button className="btn btn-outline-secondary" type="button">
-                    button
+                    <img src={search} alt="searchbtn" />
                   </button>
                 </div>
                 <input type="text" className="form-control" placeholder="Search Recipe" aria-label="" style={{ width: "400px", height: "90" }} />
