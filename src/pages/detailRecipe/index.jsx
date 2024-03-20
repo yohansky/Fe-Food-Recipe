@@ -7,6 +7,7 @@ import Footer from "../../components/Footer";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import miniprofile from "../../assets/img/miniprofile.png";
+import NavbarProfile from "../../components/NavbarProfile";
 
 const DetailRecipe = () => {
   const [recipes, setRecipes] = useState([]);
@@ -27,8 +28,8 @@ const DetailRecipe = () => {
   return (
     <>
       <NavbarProfile />
-      DetailRecipe {id}
-      {JSON.stringify(recipes)}
+      {/* DetailRecipe {id} */}
+      {/* {JSON.stringify(recipes)} */}
       <main id="detail">
         <div style={{ marginTop: "156px", justifyContent: "center" }}>
           <h1 style={{ fontWeight: "500", fontSize: "72px", color: "#2E266F", marginLeft: "660px" }}>{recipes.Title}</h1>

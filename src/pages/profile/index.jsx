@@ -8,6 +8,7 @@ import recipe2 from "../../assets/img/recipe11.png";
 import Footer from "../../components/Footer";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
+import NavbarProfile from "../../components/NavbarProfile";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("link-1");
@@ -26,7 +27,7 @@ const Profile = () => {
 
   return (
     <div>
-      <NavbarLogin />
+      <NavbarProfile />
       <div style={{ marginTop: "244px", marginLeft: "874px" }}>
         <img src={profilepic} alt="profilepic" />
         <Button style={{ backgroundColor: "white", position: "absolute", height: "20px", borderColor: "white" }}></Button>
