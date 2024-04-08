@@ -11,6 +11,13 @@
     margin-right: auto;
   }
 } */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
 
 @media screen and (max-width: 992px) {
   #navbar .desktop-component {
@@ -19,5 +26,11 @@
 
   #navbar .mobile-component {
     display: flex !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
   }
 }

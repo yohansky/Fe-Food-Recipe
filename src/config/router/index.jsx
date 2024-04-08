@@ -11,18 +11,20 @@ import Profile from "../../pages/profile";
 import ResetPassword from "../../pages/auth/ResetPassword";
 import DetailVideo from "../../pages/detailRecipe/detailVideo";
 import ReqAuth from "../../components/ReqAuth";
+import LandingPage from "../../pages/landingpage";
 
 const Router = () => {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to={"/home"} replace="true" />} />
+          <Route path="/" element={<Navigate to={"/landingpage"} replace="true" />} />
           <Route path="/auth/Login" element={<Login />} />
           <Route path="/auth/Forgot" element={<Forgot />} />
           <Route path="/auth/Register" element={<Register />} />
           <Route path="/auth/Confirm" element={<Confirm />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/landingpage" element={<LandingPage />} />
           <Route
             path="/addRecipe"
             element={

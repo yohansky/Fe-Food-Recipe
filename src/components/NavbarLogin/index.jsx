@@ -1,30 +1,34 @@
 import React from "react";
 import profilephoto from "../../assets/img/Usericon.png";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import pp from "../../assets/img/Usericon1.png";
 
 const NavbarLogin = () => {
   return (
     <>
-      <Navbar className="fixed-top">
-        <Nav className="me-auto mt-4" style={{ marginLeft: "100px" }}>
-          <Nav.Link href="" className="" style={{ color: "#2E266F", fontSize: "18px" }}>
-            <Link to={"/home"}>Home</Link>
-          </Nav.Link>
-          <Nav.Link href="" className="ml-5" style={{ color: "#2E266F", fontSize: "18px" }}>
-            <Link to={"/addRecipe"}>Add Recipe</Link>
-          </Nav.Link>
-          <Nav.Link href="" className="ml-5" style={{ color: "#2E266F", fontSize: "18px" }}>
-            <Link to={"/profile"}>Profile</Link>
-          </Nav.Link>
-          <Nav.Link href="" style={{ marginLeft: "1150px" }}>
-            <img src={profilephoto} alt="profile" />
-          </Nav.Link>
-
-          <Nav.Link href="" className="ml-1 mt-2" style={{ color: "#FFFFFF", fontSize: "18px" }}>
-            <Link to={"/auth/Login"}>Login</Link>
-          </Nav.Link>
-        </Nav>
+      <Navbar expand="lg" className="bg-body-tertiary mt-4">
+        <Container fluid>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
+              <Nav.Link className="ml-5" style={{ color: "#2E266F" }}>
+                <Link to={"/LandingPage"}>Home</Link>
+              </Nav.Link>
+              <Nav.Link className="ml-5" style={{ color: "#2E266F" }}>
+                <Link to={"/addRecipe"}>Add Recipe</Link>
+              </Nav.Link>
+              <Nav.Link className="ml-5" style={{ color: "#2E266F" }}>
+                <Link to={"/profile"}>Profile</Link>
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+          <Link to={"/auth/Login"}>
+            <p className="mr-5">
+              <img src={pp} alt="pp" /> Login
+            </p>
+          </Link>
+        </Container>
       </Navbar>
     </>
   );
