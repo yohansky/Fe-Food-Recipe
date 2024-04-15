@@ -28,11 +28,6 @@ const NavbarProfile = () => {
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
-          <Link to={"/auth/Login"}>
-            <p className="mr-5">
-              <img src={pp} alt="pp" /> Login
-            </p>
-          </Link>
         </Container>
       </Navbar>
     </>

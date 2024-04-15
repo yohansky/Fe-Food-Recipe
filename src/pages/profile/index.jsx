@@ -28,9 +28,9 @@ const Profile = () => {
   return (
     <div>
       <NavbarProfile />
-      <div style={{ marginTop: "244px", marginLeft: "874px" }}>
+      <div style={{ marginTop: "204px", marginLeft: "674px" }}>
         <img src={profilepic} alt="profilepic" />
-        <Button style={{ backgroundColor: "white", position: "absolute", height: "20px", borderColor: "white" }}></Button>
+        {/* <Button style={{ backgroundColor: "white", position: "absolute", height: "20px", borderColor: "white" }}></Button> */}
         <div style={{ marginTop: "20px", marginLeft: "50px" }}>
           <Accordion>
             <Accordion.Item eventKey="0">

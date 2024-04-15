@@ -43,11 +43,11 @@ const Login = () => {
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>E-mail</Form.Label>
-                    <Form.Control size="lg" type="email" placeholder="name@example.com" style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }} />
+                    <Form.Control size="lg" type="email" placeholder="name@example.com" required style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }} />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control size="lg" type="password" placeholder="Password" style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }} />
+                    <Form.Control size="lg" type="password" placeholder="Password" required style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }} />
                   </Form.Group>
                   {["checkbox"].map((type) => (
                     <div key={`default-${type}`} className="mb-4 mt-4">

@@ -8,6 +8,8 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import miniprofile from "../../assets/img/miniprofile.png";
 import NavbarProfile from "../../components/NavbarProfile";
+import like from "../../assets/img/like.png";
+import bookmark from "../../assets/img/bookmark.png";
 
 const DetailRecipe = () => {
   const [recipes, setRecipes] = useState([]);
@@ -31,13 +33,69 @@ const DetailRecipe = () => {
       {/* DetailRecipe {id} */}
       {/* {JSON.stringify(recipes)} */}
       <main id="detail">
-        <div style={{ marginTop: "156px", justifyContent: "center" }}>
+        <div style={{ marginLeft: "180px", marginRight: "90px" }}>
+          <div className="text-center" style={{ marginTop: "100px" }}>
+            <h1 className="mb-4">Loream Sandwich</h1>
+            <div>
+              <img src={recipe} alt="gambar" style={{ zIndex: "-1", position: "absolute", left: "250px", top: "290px" }} />
+              <div className="row" style={{ zIndex: "1", marginTop: "650px", marginLeft: "800px" }}>
+                <div className="col">
+                  <div className="card rounded" style={{ border: "yellow", width: "52px", height: "52px", backgroundColor: "#FFFFFF" }}></div>
+                </div>
+                <div className="col">
+                  <div className="card rounded" style={{ border: "yellow", width: "52px", height: "52px", backgroundColor: "#FFFFFF" }}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-5">
+            <h2 style={{ marginTop: "100px" }}>Ingredients</h2>
+            <h3 style={{ marginTop: "50px" }}>
+              - 2 Eggs <br />
+              - 2 Tbsp Mayonnaise <br />
+              - 3 Slices Bread <br />
+              - A Little Butter <br />
+              - 1/3 Carton Of Cress <br />
+              - 2-3 Slices Of Tomato Or A Lettuce <br />
+              - Crisps, To Serve <br />
+            </h3>
+          </div>
+          <div className="mt-5">
+            <h2 style={{ marginTop: "50px" }}>Video Step</h2>
+            <Link to={"/detailRecipe/detailVideo"}>
+              <Button className="rounded mt-3" style={{ backgroundColor: "#EFC81A", width: "300px", height: "75px" }}>
+                <div className="text-center">
+                  <img src={play} alt="" />
+                </div>
+              </Button>
+            </Link>
+          </div>
+          <div className="mt-5">
+            <Form style={{ marginTop: "100px" }}>
+              <Form.Control as="textarea" placeholder="Comment :" style={{ width: "1200px", height: "380px", backgroundColor: "#F6F5F4", fontSize: "24px", paddingLeft: "40px", paddingTop: "35px" }} />
+            </Form>
+          </div>
+          <div className="mt-5">
+            <h2>Comment</h2>
+            <div className="row mt-4">
+              <div className="col-1">
+                <img src={miniprofile} alt="miniprofile" />
+              </div>
+              <div className="col-11">
+                <h5 style={{ fontWeight: "500", fontSize: "24px" }}>Ayudia</h5>
+                <h6 style={{ fontWeight: "400", fontSize: "24px" }}>Nice recipe. simple and delicious, thankyou</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <div style={{ marginTop: "156px" }}>
           <h1 style={{ fontWeight: "500", fontSize: "72px", color: "#2E266F", marginLeft: "660px" }}>{recipes.Title}</h1>
           <img src={recipe} alt="gambar" style={{ marginLeft: "400px", marginTop: "70px" }} />
           <div style={{ marginTop: "109px" }}>
             <h4 style={{ fontWeight: "500", fontSize: "48px", marginLeft: "312px" }}>Ingredients</h4>
             <div style={{ marginTop: "42px", marginLeft: "306px" }}>
-              {/* <h4 style={{ fontWeight: "300", size: "36px" }}>
+              <h4 style={{ fontWeight: "300", size: "36px" }}>
                 - 2 Eggs <br />
                 - 2 Tbsp Mayonnaise <br />
                 - 3 Slices Bread <br />
@@ -45,7 +103,7 @@ const DetailRecipe = () => {
                 - 1/3 Carton Of Cress <br />
                 - 2-3 Slices Of Tomato Or A Lettuce <br />
                 - Crisps, To Serve <br />
-              </h4> */}
+              </h4>
               <h4 style={{ fontWeight: "300", size: "36px" }}>{recipes.Ingredient}</h4>
             </div>
             <div style={{ marginTop: "74px", marginLeft: "306px" }}>
@@ -78,13 +136,13 @@ const DetailRecipe = () => {
                     <h6 style={{ fontWeight: "400", fontSize: "24px" }}>Nice recipe. simple and delicious, thankyou</h6>
                   </div>
                 </div>
-              </div>
-              {/* {comments ? comments.map((item) => item) : <p>No Comments Yet...</p>} */}
-            </div>
+              </div> */}
+        {/* {comments ? comments.map((item) => item) : <p>No Comments Yet...</p>} */}
+        {/* </div>
           </div>
-        </div>
+        </div> */}
       </main>
-      <div style={{ marginTop: "356px" }}>
+      <div style={{ marginTop: "200px" }}>
         <Footer />
       </div>
     </>

@@ -14,6 +14,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import recipe1 from "../../assets/img/recipe1.png";
 import recipe3 from "../../assets/img/recipe3.png";
+import NavbarLogin from "../../components/NavbarLogin";
 
 const LandingPage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -35,29 +36,7 @@ const LandingPage = () => {
   //   }, [token]);
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary mt-4">
-        <Container fluid>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
-              <Nav.Link className="ml-5" style={{ color: "#2E266F" }}>
-                <Link to={"/LandingPage"}>Home</Link>
-              </Nav.Link>
-              <Nav.Link className="ml-5" style={{ color: "#2E266F" }}>
-                <Link to={"/addRecipe"}>Add Recipe</Link>
-              </Nav.Link>
-              <Nav.Link className="ml-5" style={{ color: "#2E266F" }}>
-                <Link to={"/profile"}>Profile</Link>
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-          <Link to={"/auth/Login"}>
-            <p className="mr-5">
-              <img src={pp} alt="pp" /> Login
-            </p>
-          </Link>
-        </Container>
-      </Navbar>
+      <NavbarLogin />
       {/* {JSON.stringify(recipes)} */}
       <div style={{ marginLeft: "90px", marginRight: "90px" }}>
         {/* Container */}
@@ -104,7 +83,9 @@ const LandingPage = () => {
                   Quick + Easy Chicken Bone Broth Ramen- <br /> Healthy chicken ramen in a hurry? That's right!
                 </h3>
                 <div className="text-center">
-                  <Button variant="warning">Learn More</Button>
+                  <Link to={"/detailRecipe"}>
+                    <Button variant="warning">Learn More</Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -135,7 +116,9 @@ const LandingPage = () => {
                   Quick + Easy Chicken Bone Broth Ramen- <br /> Healthy chicken ramen in a hurry? That's right!
                 </h3>
                 <div className="text-center">
-                  <Button variant="warning">Learn More</Button>
+                  <Link to={"/detailRecipe"}>
+                    <Button variant="warning">Learn More</Button>
+                  </Link>
                 </div>
               </div>
             </div>
