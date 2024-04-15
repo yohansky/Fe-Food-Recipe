@@ -150,7 +150,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div style={{ marginTop: "3000px", display: "block" }}>
+      <div style={{ marginTop: "3000px" }}>
         <Footer />
       </div>
     </>
