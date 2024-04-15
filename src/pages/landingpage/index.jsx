@@ -65,7 +65,7 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-        <div className="popular">
+        <div id="popular">
           {/* Popular for you */}
           <div className="row" style={{ marginTop: "115px" }}>
             <div className="col-1">
@@ -101,7 +101,7 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-        <div className="newrecipe">
+        <div id="newrecipe">
           {/* New Recipe */}
           <div className="row" style={{ marginTop: "90px" }}>
             <div className="col-1">
@@ -134,7 +134,7 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-        <div className="Popular">
+        <div id="popularrecipe">
           {/* Popular for you */}
           <div className="row" style={{ marginTop: "90px" }}>
             <div className="col-1">
@@ -150,7 +150,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div style={{ marginTop: "3000px" }}>
+      <div style={{ marginTop: "3000px", display: "block" }}>
         <Footer />
       </div>
     </>
