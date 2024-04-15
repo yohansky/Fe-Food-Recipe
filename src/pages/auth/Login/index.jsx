@@ -24,22 +24,22 @@ const Login = () => {
   return (
     <>
       <main id="login">
-        <div className="row border">
-          <div className="col-6 border">
-            <img src={logobg} alt="logobg" className="background-image" style={{ objectFit: "cover", width: "560px", height: "1000px", position: "absolute", zIndex: "-1", backgroundImage: "linear-gradient(#EFC81A, #EFC81A)" }} />
-            <div className="row">
-              <div className="col-6">
-                <img src={logo} alt="logo" style={{ marginTop: "480px", marginLeft: "389px" }} />
-              </div>
+        <div className="row" style={{ height: "730px" }}>
+          <div className="col-6">
+            <div style={{ position: "absolute", zIndex: "-1" }}>
+              <img src={logobg} alt="logobg" style={{ objectFit: "cover", width: "743px", height: "740px", backgroundImage: "linear-gradient(#EFC81A, #EFC81A)" }} />
+            </div>
+            <div>
+              <img src={logo} alt="logo" style={{ marginTop: "250px", marginLeft: "250px" }} />
             </div>
           </div>
-          <div className="col-6 justify-content-center border">
-            <div className="" style={{ marginTop: "350px", marginLeft: "230px" }}>
+          <div className="col-6">
+            <div className="" style={{ marginTop: "100px", marginLeft: "100px" }}>
               <h2 style={{ color: "#EFC81A", textAlign: "center" }}>Welcome</h2>
               <h5 className="mt-3" style={{ color: "#8692A6", textAlign: "center" }}>
                 Log in into your exiting account
               </h5>
-              <div className="mt-4">
+              <div className="mt-4" style={{ paddingLeft: "90px" }}>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>E-mail</Form.Label>
@@ -61,7 +61,7 @@ const Login = () => {
                     </Button>
 
                     <Link to={"/auth/Forgot"}>
-                      <p className="mt-2 text-secondary" style={{ textAlign: "right" }}>
+                      <p className="mt-2 text-secondary" style={{}}>
                         Forgot Password
                       </p>
                     </Link>

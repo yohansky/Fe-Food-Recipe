@@ -11,9 +11,10 @@ const Register = () => {
     phoneNumber: "",
     newPassword: "",
     confirmPassword: "",
+    agreeTerms: false, // State tambahan untuk mengontrol checkbox
   });
 
-  const [formValid, setFormValid] = useState(false);
+  const { name, email, phoneNumber, newPassword, confirmPassword, agreeTerms } = formData;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,85 +24,91 @@ const Register = () => {
     });
   };
 
-  const validateForm = () => {
-    const { name, email, phoneNumber, newPassword, confirmPassword } = formData;
-    if (name && email && phoneNumber && newPassword && confirmPassword) {
-      setFormValid(true);
-    } else {
-      setFormValid(false);
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // Implement your registration logic here
+    if (name.trim() === "" || email.trim() === "" || phoneNumber.trim() === "" || newPassword.trim() === "" || confirmPassword.trim() === "") {
+      alert("Harap isi semua kolom formulir.");
+      return;
+    }
+    if (!agreeTerms) {
+      alert("Anda harus menyetujui syarat dan ketentuan.");
+      return;
+    }
   };
 
   return (
-    <div>
+    <>
       <main id="register">
-        <div className="row">
+        <div className="row" style={{ height: "730px" }}>
           <div className="col-6">
-            <div className="col-6">
-              <img src={logobg} alt="logobg" className="background-image" style={{ width: "960px", height: "1805px", position: "absolute", zIndex: "0", backgroundImage: "linear-gradient(#EFC81A, #EFC81A)" }} />
-              <div className="row">
-                <div className="col-12">
-                  <img src={logo} alt="logo" style={{ marginTop: "480px", zIndex: "1", marginLeft: "389px" }} />
-                </div>
-              </div>
+            <div style={{ position: "absolute", zIndex: "-1" }}>
+              <img src={logobg} alt="logobg" style={{ objectFit: "cover", width: "743px", height: "740px", backgroundImage: "linear-gradient(#EFC81A, #EFC81A)" }} />
+            </div>
+            <div>
+              <img src={logo} alt="logo" style={{ marginTop: "250px", marginLeft: "250px" }} />
             </div>
           </div>
-          <div className="col-6 d-flex justify-content-center">
-            <form onSubmit={handleSubmit}>
-              <h2 style={{ color: "yellow", textAlign: "center" }}>Let's Get Started !</h2>
+          <div className="col-6" style={{ paddingRight: "100px" }}>
+            <div className="" style={{ marginTop: "45px", marginLeft: "100px" }}>
+              <h2 style={{ color: "#EFC81A", textAlign: "center" }}>Let's Get Started !</h2>
               <h5 className="mt-3" style={{ textAlign: "center" }}>
                 Create new account to access all features
               </h5>
-              <div className="mt-4">
-                <Form.Group className="mb-3" controlId="name">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control size="lg" type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="Name" required />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="email">
-                  <Form.Label>Email address*</Form.Label>
-                  <Form.Control size="lg" type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Enter email address" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="phoneNumber">
-                  <Form.Label>Phone Number</Form.Label>
-                  <Form.Control size="lg" type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange} placeholder="08xxxxxxxxxx" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="newPassword">
-                  <Form.Label>Create New Password</Form.Label>
-                  <Form.Control size="lg" type="password" name="newPassword" value={formData.newPassword} onChange={handleInputChange} placeholder="Create New Password" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="confirmPassword">
-                  <Form.Label>Confirm Password</Form.Label>
-                  <Form.Control size="lg" type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleInputChange} placeholder="Confirm Password" />
-                </Form.Group>
-                {["checkbox"].map((type) => (
-                  <div key={`default-${type}`} className="mb-4">
-                    <Form.Check type={type} id={`default-${type}`} label={`I agree to terms & conditions`} />
-                  </div>
-                ))}
-                <div className="mb-2">
-                  <Link to={"/auth/Login"}>
-                    <Button variant="warning" size="lg" style={{ width: "426px" }} type="submit" disabled={!formValid}>
-                      Register Account
+              <div className="mt-4" style={{ paddingLeft: "90px" }}>
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group className="mb-3" controlId="name">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control size="sm" type="text" name="name" value={name} onChange={handleInputChange} placeholder="Name" />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="email">
+                    <Form.Label>Email address*</Form.Label>
+                    <Form.Control size="sm" type="email" name="email" value={email} onChange={handleInputChange} placeholder="Enter email address" />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="phoneNumber">
+                    <Form.Label>Phone Number</Form.Label>
+                    <Form.Control size="sm" type="tel" name="phoneNumber" value={phoneNumber} onChange={handleInputChange} placeholder="08xxxxxxxxxx" />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="newPassword">
+                    <Form.Label>Create New Password</Form.Label>
+                    <Form.Control size="sm" type="password" name="newPassword" value={newPassword} onChange={handleInputChange} placeholder="Create New Password" />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="confirmPassword">
+                    <Form.Label>Confirm Password</Form.Label>
+                    <Form.Control size="sm" type="password" name="confirmPassword" value={confirmPassword} onChange={handleInputChange} placeholder="Confirm Password" />
+                  </Form.Group>
+                  {["checkbox"].map((type) => (
+                    <div key={`default-${type}`} className="mb-4 mt-4">
+                      <Form.Check type="checkbox" id={`default-checkbox`} label={`I agree to terms & conditions`} name="agreeTerms" checked={agreeTerms} onChange={handleInputChange} />
+                    </div>
+                  ))}
+
+                  <div className="mb-2">
+                    <Button
+                      type="submit"
+                      variant="warning"
+                      size="lg"
+                      style={{ width: "426px" }}
+                      disabled={name.trim() === "" || email.trim() === "" || phoneNumber.trim() === "" || newPassword.trim() === "" || confirmPassword.trim() === "" || !agreeTerms}
+                      href="/auth/Login"
+                    >
+                      Sign Up
                     </Button>
-                  </Link>
-                  <p className="mt-2" style={{ textAlign: "center" }}>
-                    Already have an account?{" "}
-                    <a href="#" style={{ color: "yellow" }}>
-                      Log In Here
-                    </a>
-                  </p>
-                </div>
+
+                    <p className="mt-2" style={{ textAlign: "center" }}>
+                      Already have an account?{" "}
+                      <a href="/auth/Login" style={{ color: "#EFC81A" }}>
+                        Log In Here
+                      </a>
+                    </p>
+                  </div>
+                </Form>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </main>
-    </div>
+    </>
   );
 };
 
