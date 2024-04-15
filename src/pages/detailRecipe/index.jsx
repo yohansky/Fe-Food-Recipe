@@ -10,6 +10,7 @@ import miniprofile from "../../assets/img/miniprofile.png";
 import NavbarProfile from "../../components/NavbarProfile";
 import like from "../../assets/img/like.png";
 import bookmark from "../../assets/img/bookmark.png";
+import * as Icons from "react-feather";
 
 const DetailRecipe = () => {
   const [recipes, setRecipes] = useState([]);
@@ -36,21 +37,22 @@ const DetailRecipe = () => {
         <div style={{ marginLeft: "180px", marginRight: "90px" }}>
           <div className="text-center" style={{ marginTop: "100px" }}>
             <h1 className="mb-4">Loream Sandwich</h1>
-            <div>
-              <img src={recipe} alt="gambar" style={{ zIndex: "-1", position: "absolute", left: "250px", top: "290px" }} />
-              <div className="row" style={{ zIndex: "1", marginTop: "650px", marginLeft: "800px" }}>
-                <div className="col">
-                  <div className="card rounded" style={{ border: "yellow", width: "52px", height: "52px", backgroundColor: "#FFFFFF" }}></div>
-                </div>
-                <div className="col">
-                  <div className="card rounded" style={{ border: "yellow", width: "52px", height: "52px", backgroundColor: "#FFFFFF" }}></div>
-                </div>
-              </div>
+            <div className="mb-3">
+              <img src={recipe} alt="gambar" style={{ left: "250px", top: "290px", width: "600px", height: "400px" }} />
+            </div>
+            <div className="mx-auto">
+              <button className="btn">
+                <Icons.ThumbsUp />
+              </button>
+
+              <button className="btn">
+                <Icons.Bookmark />
+              </button>
             </div>
           </div>
           <div className="mt-5">
-            <h2 style={{ marginTop: "100px" }}>Ingredients</h2>
-            <h3 style={{ marginTop: "50px" }}>
+            <h2 style={{ marginTop: "50px" }}>Ingredients</h2>
+            <h3 style={{ marginTop: "25px" }}>
               - 2 Eggs <br />
               - 2 Tbsp Mayonnaise <br />
               - 3 Slices Bread <br />

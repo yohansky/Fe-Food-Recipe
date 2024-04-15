@@ -45,7 +45,7 @@ const LandingPage = () => {
       </div>
       {token ? <NavbarProfile /> : <NavbarLogin />}
       {/* {JSON.stringify(recipes)} */}
-      <div style={{ marginLeft: "90px", marginRight: "90px", zIndex: "1", position: "absolute" }}>
+      <div style={{ marginLeft: "90px", marginRight: "90px" }}>
         {/* Container */}
         <div className="row mt-5">
           <div className="col-6" style={{ paddingTop: "150px", paddingLeft: "30px" }}>
@@ -54,15 +54,13 @@ const LandingPage = () => {
             </h1>
             <InputGroup style={{ height: "48px" }}>
               <Button variant="outline-secondary" id="button-addon1">
-                Button
+                Search
               </Button>
-              <Form.Control style={{ height: "48px" }} type="search" aria-label="Example text with button addon" aria-describedby="basic-addon1" />
+              <Form.Control type="search" aria-describedby="basic-addon1" style={{ height: "48px" }} />
             </InputGroup>
           </div>
           <div className="col-6">
-            <div className="card rounded">
-              <img src={recipe12} alt="recipe" style={{ height: "500px" }} />
-            </div>
+            <img src={recipe12} alt="recipe" style={{ height: "500px", width: "600px" }} />
           </div>
         </div>
         <div id="popular">
@@ -78,8 +76,8 @@ const LandingPage = () => {
           {/* Popular for you */}
           <div className="row mt-5 border" style={{ width: "1390px" }}>
             <div className="col-6">
-              <div style={{ top: "0px", left: "100px", zIndex: "-1", position: "absolute" }}>
-                <div style={{ border: "2px solid #EFC81A", height: "100px" }}></div>
+              <div style={{ top: "85px", left: "250px", zIndex: "-1", position: "absolute" }}>
+                <div style={{ border: "4px solid #EFC81A", height: "500px", width: "400px" }}></div>
               </div>
               <img src={recipe1} alt="1" style={{ height: "550px", paddingLeft: "40px" }} />
             </div>
@@ -150,7 +148,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div style={{ marginTop: "3000px" }}>
+      <div className="mt-5" style={{ marginTop: "3000px" }}>
         <Footer />
       </div>
     </>

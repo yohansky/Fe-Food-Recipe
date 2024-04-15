@@ -24,16 +24,16 @@ const Login = () => {
   return (
     <>
       <main id="login">
-        <div className="row">
-          <div className="col-6">
-            <img src={logobg} alt="logobg" className="background-image" style={{ width: "960px", height: "1805px", position: "absolute", zIndex: "0", backgroundImage: "linear-gradient(#EFC81A, #EFC81A)" }} />
+        <div className="row border">
+          <div className="col-6 border">
+            <img src={logobg} alt="logobg" className="background-image" style={{ objectFit: "cover", width: "560px", height: "1000px", position: "absolute", zIndex: "-1", backgroundImage: "linear-gradient(#EFC81A, #EFC81A)" }} />
             <div className="row">
               <div className="col-6">
-                <img src={logo} alt="logo" style={{ marginTop: "480px", zIndex: "1", marginLeft: "389px" }} />
+                <img src={logo} alt="logo" style={{ marginTop: "480px", marginLeft: "389px" }} />
               </div>
             </div>
           </div>
-          <div className="d-flex justify-content-center">
+          <div className="col-6 justify-content-center border">
             <div className="" style={{ marginTop: "350px", marginLeft: "230px" }}>
               <h2 style={{ color: "#EFC81A", textAlign: "center" }}>Welcome</h2>
               <h5 className="mt-3" style={{ color: "#8692A6", textAlign: "center" }}>
