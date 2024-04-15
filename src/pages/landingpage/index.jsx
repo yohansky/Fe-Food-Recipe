@@ -15,6 +15,7 @@ import Button from "react-bootstrap/Button";
 import recipe1 from "../../assets/img/recipe1.png";
 import recipe3 from "../../assets/img/recipe3.png";
 import NavbarLogin from "../../components/NavbarLogin";
+import Footer from "../../components/Footer";
 
 const LandingPage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -30,15 +31,21 @@ const LandingPage = () => {
       });
   }, []);
 
-  //   const [token, setToken] = useState("");
-  //   useEffect(() => {
-  //     setToken(localStorage.getItem("token"));
-  //   }, [token]);
+  const [token, setToken] = useState("");
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  }, [token]);
   return (
     <>
-      <NavbarLogin />
+      <div style={{ top: "0px", left: "0px", zIndex: "-1", position: "absolute" }}>
+        <div className="row" style={{ top: "0px", left: "0px", height: "740px", width: "1500px" }}>
+          <div className="col-8"></div>
+          <div className="col-4" style={{ backgroundColor: "#EFC81A" }}></div>
+        </div>
+      </div>
+      {token ? <NavbarProfile /> : <NavbarLogin />}
       {/* {JSON.stringify(recipes)} */}
-      <div style={{ marginLeft: "90px", marginRight: "90px" }}>
+      <div style={{ marginLeft: "90px", marginRight: "90px", zIndex: "1", position: "absolute" }}>
         {/* Container */}
         <div className="row mt-5">
           <div className="col-6" style={{ paddingTop: "150px", paddingLeft: "30px" }}>
@@ -60,7 +67,7 @@ const LandingPage = () => {
         </div>
         <div className="popular">
           {/* Popular for you */}
-          <div className="row" style={{ marginTop: "90px" }}>
+          <div className="row" style={{ marginTop: "115px" }}>
             <div className="col-1">
               <div style={{ border: "1px solid #EFC81A", backgroundColor: "#EFC81A", width: "25px", height: "120px" }}></div>
             </div>
@@ -69,8 +76,11 @@ const LandingPage = () => {
             </div>
           </div>
           {/* Popular for you */}
-          <div className="row mt-5">
+          <div className="row mt-5 border" style={{ width: "1390px" }}>
             <div className="col-6">
+              <div style={{ top: "0px", left: "100px", zIndex: "-1", position: "absolute" }}>
+                <div style={{ border: "2px solid #EFC81A", height: "100px" }}></div>
+              </div>
               <img src={recipe1} alt="1" style={{ height: "550px", paddingLeft: "40px" }} />
             </div>
             <div className="col-6" style={{ marginTop: "150px", paddingLeft: "30px" }}>
@@ -102,7 +112,7 @@ const LandingPage = () => {
             </div>
           </div>
           {/* New Recipe */}
-          <div className="row" style={{ marginTop: "50px" }}>
+          <div className="row border" style={{ marginTop: "50px", width: "1390px" }}>
             <div className="col-6">
               <img src={recipe3} alt="1" style={{ height: "550px", paddingLeft: "30px" }} />
             </div>
@@ -131,7 +141,7 @@ const LandingPage = () => {
               <div style={{ border: "1px solid #EFC81A", backgroundColor: "#EFC81A", width: "25px", height: "140px" }}></div>
             </div>
             <div className="col">
-              <h3 style={{ fontSize: "48px", fontWeight: "500", marginTop: "40px" }}>Popular For You !</h3>
+              <h3 style={{ fontSize: "48px", fontWeight: "500", marginTop: "40px" }}>Popular Recipe</h3>
             </div>
           </div>
           {/* Popular for you */}
@@ -140,23 +150,8 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div className="footer">
-        <div className="mt-5" style={{ border: "1px solid #EFC81A", backgroundColor: "#EFC81A", width: "1480px", height: "685px", position: "absolute" }}>
-          <div style={{ marginTop: "247px", textAlign: "center" }}>
-            <h3 style={{ fontWeight: "400", fontSize: "72px", textAlign: "center" }}>Eat,Cook,Repeat</h3>
-            <h4 className="mt-4" style={{ fontSize: "24px", color: "#707070" }}>
-              Share Your Best Recipe By Uploading Here !
-            </h4>
-          </div>
-          <div style={{ marginTop: "217px", marginLeft: "500px" }}>
-            <div className="row">
-              <div className="col-2">Product</div>
-              <div className="col-2">Company</div>
-              <div className="col-2">Learn More</div>
-              <div className="col-2">Get in Touch</div>
-            </div>
-          </div>
-        </div>
+      <div style={{ marginTop: "3000px" }}>
+        <Footer />
       </div>
     </>
   );

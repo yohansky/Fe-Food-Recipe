@@ -33,4 +33,9 @@ body {
   body {
     overflow-x: hidden;
   }
+
+  /* .row {
+    display: flex;
+    flex-direction: column;
+  } */
 }

@@ -12,12 +12,12 @@ const Login = () => {
     e.preventDefault();
     setToken("token");
     localStorage.setItem("token", Date.now());
-    navigate("/home");
+    navigate("/landingpage");
   }
 
   useEffect(() => {
     if (token) {
-      navigate("/home");
+      navigate("/landingpage");
     }
   }, [token]);
 

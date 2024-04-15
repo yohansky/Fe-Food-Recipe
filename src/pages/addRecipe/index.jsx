@@ -39,17 +39,13 @@ const AddRecipe = () => {
       <NavbarProfile />
       <div style={{ marginLeft: "90px", marginRight: "90px" }}>
         <div style={{ marginTop: "78px" }}>
-          <div className="card" style={{ width: "1100px", height: "480px", backgroundColor: "#F6F5F4", marginLeft: "100px" }}>
-            <div style={{ marginTop: "174px" }}>
-              <img src={addPhoto} alt="addphoto" style={{ color: "#666666", width: "64px", height: "64px", marginLeft: "620px" }} />
-              <h5 className="mt-2" style={{ fontWeight: "500", fontSize: "24px", marginLeft: "600px" }}>
-                Add Photo
-              </h5>
-            </div>
-          </div>
           <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-4" controlId="exampleForm.ControlInput1">
+              <Form.Control type="file" id="file-input" accept=".png,.jpg,.jpeg" style={{ backgroundColor: "#F6F5F4" }} />
+            </Form.Group>
+
             <div className="card" style={{ marginTop: "40px" }}>
-              <Form.Control size="lg" type="text" name="Title" value={formData.Title} placeholder="Title" style={{ backgroundColor: "#F6F5F4" }} onChange={handleChange} />
+              <Form.Control type="text" name="Title" value={formData.Title} placeholder="Title" style={{ backgroundColor: "#F6F5F4", paddingLeft: "20px" }} onChange={handleChange} required />
             </div>
             <div className="card" style={{ marginTop: "40px" }}>
               <Form.Control
@@ -57,20 +53,13 @@ const AddRecipe = () => {
                 name="Ingredient"
                 value={formData.Ingredient}
                 placeholder="Ingredients"
-                style={{ width: "1300px", height: "380px", backgroundColor: "#F6F5F4", fontSize: "18px", paddingLeft: "30px", paddingTop: "35px" }}
+                style={{ height: "380px", backgroundColor: "#F6F5F4", fontSize: "18px", paddingLeft: "20px", paddingTop: "20px" }}
                 onChange={handleChange}
+                required
               />
             </div>
             <div className="card" style={{ marginTop: "40px" }}>
-              <Form.Control
-                size="lg"
-                type="text"
-                name="VideoUrl"
-                value={formData.VideoUrl}
-                placeholder="Video"
-                style={{ width: "1300px", height: "100px", backgroundColor: "#F6F5F4", fontSize: "18px", paddingLeft: "40px" }}
-                onChange={handleChange}
-              />
+              <Form.Control type="text" name="VideoUrl" value={formData.VideoUrl} placeholder="Video" style={{ backgroundColor: "#F6F5F4", fontSize: "18px", paddingLeft: "20px" }} onChange={handleChange} required />
             </div>
 
             <div style={{ marginTop: "123px", marginLeft: "433px" }}>

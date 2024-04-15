@@ -85,7 +85,7 @@ const Register = () => {
                 ))}
                 <div className="mb-2">
                   <Link to={"/auth/Login"}>
-                    <Button variant="warning" size="lg" style={{ width: "426px" }} type="submit">
+                    <Button variant="warning" size="lg" style={{ width: "426px" }} type="submit" disabled={!formValid}>
                       Register Account
                     </Button>
                   </Link>
