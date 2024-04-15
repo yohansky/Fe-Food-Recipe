@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import bg2 from "../../assets/img/BG2.png";
 import { Container, Navbar, Nav, Button } from "react-bootstrap";
@@ -36,6 +37,12 @@ const Home = () => {
       </div>
     </div>
   );
+=======
+import React from "react";
+
+const Home = () => {
+  return <div>Home</div>;
+>>>>>>> 0d1d0aa6df73378a777c4af5db6d8c74e8a81d02
 };
 
 export default Home;

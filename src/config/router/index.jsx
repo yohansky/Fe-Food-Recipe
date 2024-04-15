@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "../../pages/auth/Login";
 import Home from "../../pages/home";
+<<<<<<< HEAD
 import Forgot from "../../pages/auth/Forgot";
 import Confirm from "../../pages/auth/Confirm";
 import Register from "../../pages/auth/Register";
@@ -12,12 +13,15 @@ import ResetPassword from "../../pages/auth/ResetPassword";
 import DetailVideo from "../../pages/detailRecipe/detailVideo";
 import ReqAuth from "../../components/ReqAuth";
 import LandingPage from "../../pages/landingpage";
+=======
+>>>>>>> 0d1d0aa6df73378a777c4af5db6d8c74e8a81d02
 
 const Router = () => {
   return (
     <div>
       <BrowserRouter>
         <Routes>
+<<<<<<< HEAD
           <Route path="/" element={<Navigate to={"/landingpage"} replace="true" />} />
           <Route path="/auth/Login" element={<Login />} />
           <Route path="/auth/Forgot" element={<Forgot />} />
@@ -52,6 +56,11 @@ const Router = () => {
           />
           <Route path="/auth/ResetPassword" element={<ResetPassword />} />
           <Route path="/detailRecipe/detailVideo" element={<DetailVideo />} />
+=======
+          <Route path="/" element={<Navigate to={"/auth/Login"} replace="true" />} />
+          <Route path="/auth/Login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+>>>>>>> 0d1d0aa6df73378a777c4af5db6d8c74e8a81d02
         </Routes>
       </BrowserRouter>
     </div>
