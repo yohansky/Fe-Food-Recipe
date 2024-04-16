@@ -63,7 +63,7 @@ const Login = () => {
 
           {/* Form Kanan */}
           <div className="col-6 border border-danger d-flex justify-content-center align-items-center   ">
-            <div >
+            <div className="border border-danger" >
               <h2 style={{ color: "#EFC81A", textAlign: "center" }}>Welcome</h2>
               <h5
                 className="mt-2"
@@ -73,10 +73,10 @@ const Login = () => {
               </h5>
 
               
-              <div className="mt-4 border border-danger">
+              <div className="mt-4 border border-danger  w-100 ">
                 <Form onSubmit={handleSubmit}>
                   <Form.Group
-                    className="mb-3"
+                    className="mb-3 border border-5 border-danger"
                     controlId="exampleForm.ControlInput1"
                   >
                     <Form.Label>E-mail</Form.Label>
@@ -85,7 +85,7 @@ const Login = () => {
                       type="email"
                       placeholder="name@example.com"
                       required
-                      className="form-control"
+                      className="formcontrol"
                       style={{
                         border: "1px solid #EFC81A",
                         height: "64px",
