@@ -12,7 +12,7 @@ import NavbarProfile from "../../components/NavbarProfile";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("link-1");
-  // const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
     axios
