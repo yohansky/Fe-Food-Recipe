@@ -3,7 +3,7 @@ import logomamarecipe from "../../../assets/logo.png";
 import logobg from "../../../assets/img/bglogin.png";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import  './login.module.css'
+import  './Login.css'
 
 const Login = () => {
   const [token, setToken] = useState();
@@ -99,12 +99,12 @@ const Login = () => {
                     controlId="exampleForm.ControlInput1"
                   >
                     <Form.Label>Password</Form.Label>
-                    <Form.Control
+                    <Form.Control 
                       size="lg"
                       type="password"
                       placeholder="Password"
                       required
-                      className="form-control"
+                      className= "formcontrol"
                       style={{
                         border: "1px solid #EFC81A",
                         height: "64px",

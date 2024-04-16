@@ -1,11 +1,11 @@
 /* File CSS: styles.css */
-.form-control,
+.formcontrol,
 .form-button {
     /* Atur lebar 426 piksel pada layar yang lebih besar dari 768 piksel */
     width: 426px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     /* Atur lebar 100% pada layar yang lebih kecil dari 768 piksel */
     .form-control,
     .form-button {
