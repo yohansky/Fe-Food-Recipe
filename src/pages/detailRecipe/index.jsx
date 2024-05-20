@@ -74,7 +74,7 @@ const DetailRecipe = () => {
           </div>
           <div className="mt-5">
             <Form style={{ marginTop: "100px" }}>
-              <Form.Control as="textarea" placeholder="Comment :" style={{ width: "1200px", height: "380px", backgroundColor: "#F6F5F4", fontSize: "24px", paddingLeft: "40px", paddingTop: "35px" }} />
+              <Form.Control as="textarea" placeholder="Comment :" style={{ width: "100%", height: "380px", backgroundColor: "#F6F5F4", fontSize: "24px", paddingLeft: "40px", paddingTop: "35px" }} />
             </Form>
           </div>
           <div className="mt-5">

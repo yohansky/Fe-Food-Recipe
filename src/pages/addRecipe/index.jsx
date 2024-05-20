@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavbarLogin from "../../components/NavbarLogin";
 import addPhoto from "../../assets/img/addphoto.png";
 import { Form, Button } from "react-bootstrap";
@@ -7,10 +7,27 @@ import axios from "axios";
 import NavbarProfile from "../../components/NavbarProfile";
 
 const AddRecipe = () => {
+  const [saveImage, setSaveImage] = useState(null);
+  function handleUpload(e) {
+    console.log(e.target.files[0]);
+    const uploader = e.target.files[0];
+    setSaveImage(uploader);
+  }
+
+  const [token, setToken] = useState("");
+  const [userId, setUserId] = useState("");
+
+  useEffect(() => {
+    //useeffect akan membaca perubahan data
+    setToken(localStorage.getItem("token"));
+    setUserId(localStorage.getItem("userid"));
+    // ambil userid dari getitem localstorage (sama seperti conditional rendering navbar di landingpage)
+  }, [token, userId]);
   const [formData, setFormData] = useState({
     Title: "",
     Ingredient: "",
-    Video: "",
+    VideoUrl: "",
+    Thumbnail: "",
   });
 
   const handleChange = (e) => {
@@ -19,12 +36,24 @@ const AddRecipe = () => {
       ...prevFormData,
       [name]: value,
     }));
+    console.log(formData);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const dataForm = new FormData();
+    dataForm.append("UserId", userId);
+    //userid diambil dari getitem (local storage)
+    dataForm.append("Title", formData.Title);
+    dataForm.append("Ingredient", formData.Ingredient);
+    dataForm.append("VideoUrl", formData.VideoUrl);
+    dataForm.append("Thumbnail", saveImage);
     try {
-      await axios.post("https://food-recipe-api-production.up.railway.app/api/v1/recipe/create", formData);
+      await axios.post("https://be-food-recipe-prod-production.up.railway.app/api/v1/recipe/create", dataForm, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       alert("Resep berhasil Ditambahkan");
       // handleClose();
       window.location.reload();
@@ -40,8 +69,8 @@ const AddRecipe = () => {
       <div style={{ marginLeft: "90px", marginRight: "90px" }}>
         <div style={{ marginTop: "78px" }}>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-4" controlId="exampleForm.ControlInput1">
-              <Form.Control type="file" id="file-input" accept=".png,.jpg,.jpeg" style={{ backgroundColor: "#F6F5F4" }} />
+            <Form.Group className="mb-4">
+              <Form.Control name="Thumbnail" type="file" id="file-input" accept=".png,.jpg,.jpeg" style={{ backgroundColor: "#F6F5F4" }} onChange={handleUpload} />
             </Form.Group>
 
             <div className="card" style={{ marginTop: "40px" }}>

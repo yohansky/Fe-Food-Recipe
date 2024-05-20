@@ -3,17 +3,44 @@ import logo from "../../../assets/logo.png";
 import logobg from "../../../assets/img/bglogin.png";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
   const [token, setToken] = useState();
   const navigate = useNavigate();
 
+  const [formData, setFormData] = useState({
+    Email: "",
+    Password: "",
+  });
+
   function handleSubmit(e) {
+    //untuk ambil user id harus taruh di handlesubmit, bukan di useeffect
     e.preventDefault();
+    axios
+      .post(`https://be-food-recipe-prod-production.up.railway.app/login`, formData)
+      .then((res) => {
+        console.log(res.data.UserId);
+        localStorage.setItem("userid", res.data.UserId);
+        //ambil userid ddari respon
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
     setToken("token");
     localStorage.setItem("token", Date.now());
     navigate("/landingpage");
   }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+    console.log(formData);
+  };
 
   useEffect(() => {
     if (token) {
@@ -24,7 +51,7 @@ const Login = () => {
   return (
     <>
       <main id="login">
-        <div className="row" style={{ height: "730px" }}>
+        <div className="row border" style={{ height: "730px" }}>
           <div className="col-6">
             <div style={{ position: "absolute", zIndex: "-1" }}>
               <img src={logobg} alt="logobg" style={{ objectFit: "cover", width: "743px", height: "740px", backgroundImage: "linear-gradient(#EFC81A, #EFC81A)" }} />
@@ -43,11 +70,29 @@ const Login = () => {
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>E-mail</Form.Label>
-                    <Form.Control size="lg" type="email" placeholder="name@example.com" required style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }} />
+                    <Form.Control
+                      name="Email"
+                      value={formData.Email}
+                      size="lg"
+                      type="email"
+                      placeholder="name@example.com"
+                      onChange={handleChange}
+                      required
+                      style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }}
+                    />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control size="lg" type="password" placeholder="Password" required style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }} />
+                    <Form.Control
+                      name="Password"
+                      value={formData.Password}
+                      size="lg"
+                      type="password"
+                      placeholder="Password"
+                      onChange={handleChange}
+                      required
+                      style={{ border: "1px solid #EFC81A", width: "426px", height: "64px", paddingLeft: "30px" }}
+                    />
                   </Form.Group>
                   {["checkbox"].map((type) => (
                     <div key={`default-${type}`} className="mb-4 mt-4">

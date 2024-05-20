@@ -16,7 +16,7 @@ const NavbarProfile = () => {
         <Container fluid>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
+            <Nav className="d-flex gap-2 align-items-end" style={{ maxHeight: "100px" }} navbarScroll>
               <Nav.Link className="ml-5" style={{ color: "#2E266F" }}>
                 <Link to={"/LandingPage"}>Home</Link>
               </Nav.Link>

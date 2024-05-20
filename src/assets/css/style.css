@@ -11,12 +11,39 @@
     margin-right: auto;
   }
 } */
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  min-height: 100vh;
   overflow-x: hidden;
+}
+
+#landingpage .flex-row {
+  display: flex; /* Mengatur .flex-row sebagai flex container */
+  gap: 70px; /* Menambahkan jarak (gap) 2 di antara elemen-elemen */
+  align-items: center;
+}
+
+@media screen and (max-width: 1233px) {
+  #landingpage .row {
+    flex-direction: column;
+    align-items: center;
+  }
+  #landingpage .col-6 {
+    width: 100%;
+    align-items: center;
+  }
+
+  img {
+    display: grid;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -26,6 +53,32 @@ body {
 
   #navbar .mobile-component {
     display: flex !important;
+  }
+
+  #login img {
+    display: none;
+  }
+
+  #login .col-6:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #login .col-6 {
+    flex: 1;
+  }
+
+  #login .row {
+    width: 100%;
+  }
+
+  #landingpage .col-md-6:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 

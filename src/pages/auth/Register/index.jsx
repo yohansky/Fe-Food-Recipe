@@ -11,7 +11,7 @@ const Register = () => {
     phoneNumber: "",
     newPassword: "",
     confirmPassword: "",
-    agreeTerms: false, // State tambahan untuk mengontrol checkbox
+    agreeTerms: false,
   });
 
   const { name, email, phoneNumber, newPassword, confirmPassword, agreeTerms } = formData;
@@ -86,7 +86,7 @@ const Register = () => {
                   <div className="mb-2">
                     <Button
                       type="submit"
-                      variant="warning"
+                      variant="secondary"
                       size="lg"
                       style={{ width: "426px" }}
                       disabled={name.trim() === "" || email.trim() === "" || phoneNumber.trim() === "" || newPassword.trim() === "" || confirmPassword.trim() === "" || !agreeTerms}

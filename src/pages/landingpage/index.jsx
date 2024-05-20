@@ -22,7 +22,7 @@ const LandingPage = () => {
 
   useEffect(() => {
     axios
-      .get(``)
+      .get(`https://be-food-recipe-prod-production.up.railway.app/api/v1/recipe/data`)
       .then((res) => {
         setRecipes(res.data);
       })
@@ -32,23 +32,28 @@ const LandingPage = () => {
   }, []);
 
   const [token, setToken] = useState("");
+  const [userId, setUserId] = useState("");
+
   useEffect(() => {
     setToken(localStorage.getItem("token"));
-  }, [token]);
+    setUserId(localStorage.getItem("userid"));
+    //ambil userid yang tadi sudah di set di login
+  }, [token, userId]);
   return (
     <>
-      <div style={{ top: "0px", left: "0px", zIndex: "-1", position: "absolute" }}>
-        <div className="row" style={{ top: "0px", left: "0px", height: "740px", width: "1500px" }}>
-          <div className="col-8"></div>
-          <div className="col-4" style={{ backgroundColor: "#EFC81A" }}></div>
+      <main id="landingpage">
+        <div style={{ top: "0px", left: "0px", zIndex: "-2", position: "absolute" }}>
+          {/* <div className="row border" style={{ height: "140px" }}>
+            <div className="col-8 border"></div>
+            <div className="col-4 border" style={{ backgroundColor: "#EFC81A" }}></div>
+          </div> */}
         </div>
-      </div>
-      {token ? <NavbarProfile /> : <NavbarLogin />}
-      {/* {JSON.stringify(recipes)} */}
-      <div style={{ marginLeft: "90px", marginRight: "90px" }}>
+        {token && userId ? <NavbarProfile /> : <NavbarLogin />}
+        {/* {JSON.stringify(recipes)} */}
+        {/* <div style={{ marginLeft: "90px", marginRight: "90px" }}> */}
         {/* Container */}
-        <div className="row mt-5">
-          <div className="col-6" style={{ paddingTop: "150px", paddingLeft: "30px" }}>
+        <div className="row mt-5 border">
+          <div className="col-md-6" style={{ paddingTop: "150px", paddingLeft: "30px" }}>
             <h1 style={{ color: "#2E266F" }}>
               Discover Recipe <br /> & Delicious Food
             </h1>
@@ -59,29 +64,29 @@ const LandingPage = () => {
               <Form.Control type="search" aria-describedby="basic-addon1" style={{ height: "48px" }} />
             </InputGroup>
           </div>
-          <div className="col-6">
-            <img src={recipe12} alt="recipe" style={{ height: "500px", width: "600px" }} />
+          <div className="col-md-6">
+            <div>
+              <img src={recipe12} alt="recipe" style={{ display: "none", width: "600px", position: "absolute", zIndex: "-1" }} />
+            </div>
           </div>
         </div>
+        <section></section>
         <div id="popular">
           {/* Popular for you */}
-          <div className="row" style={{ marginTop: "115px" }}>
-            <div className="col-1">
-              <div style={{ border: "1px solid #EFC81A", backgroundColor: "#EFC81A", width: "25px", height: "120px" }}></div>
-            </div>
-            <div className="col">
-              <h3 style={{ fontSize: "48px", fontWeight: "500", marginTop: "40px" }}>Popular For You !</h3>
-            </div>
+          <div className="flex-row border" style={{ marginTop: "115px" }}>
+            <div style={{ border: "1px solid #EFC81A", backgroundColor: "#EFC81A", width: "25px", height: "120px" }}></div>
+
+            <h3 style={{ fontSize: "48px", fontWeight: "500", marginTop: "40px" }}>Popular For You !</h3>
           </div>
           {/* Popular for you */}
-          <div className="row mt-5 border" style={{ width: "1390px" }}>
-            <div className="col-6">
+          <div className="row mt-5 border" style={{ width: "100%" }}>
+            <div className="col-md-6 col-sm-12">
               <div style={{ top: "85px", left: "250px", zIndex: "-1", position: "absolute" }}>
                 <div style={{ border: "4px solid #EFC81A", height: "500px", width: "400px" }}></div>
               </div>
               <img src={recipe1} alt="1" style={{ height: "550px", paddingLeft: "40px" }} />
             </div>
-            <div className="col-6" style={{ marginTop: "150px", paddingLeft: "30px" }}>
+            <div className="col-md-6 col-sm-12" style={{ marginTop: "150px", paddingLeft: "30px" }}>
               <h1>
                 Healthy Bone Broth <br /> Ramen (Quick& Easy)
               </h1>
@@ -101,7 +106,7 @@ const LandingPage = () => {
         </div>
         <div id="newrecipe">
           {/* New Recipe */}
-          <div className="row" style={{ marginTop: "90px" }}>
+          <div className="flex-row" style={{ marginTop: "90px" }}>
             <div className="col-1">
               <div style={{ border: "1px solid #EFC81A", backgroundColor: "#EFC81A", width: "25px", height: "140px" }}></div>
             </div>
@@ -110,11 +115,11 @@ const LandingPage = () => {
             </div>
           </div>
           {/* New Recipe */}
-          <div className="row border" style={{ marginTop: "50px", width: "1390px" }}>
-            <div className="col-6">
+          <div className="row border" style={{ marginTop: "50px", width: "100%" }}>
+            <div className="col-md-6 col-sm-12">
               <img src={recipe3} alt="1" style={{ height: "550px", paddingLeft: "30px" }} />
             </div>
-            <div className="col-6" style={{ marginTop: "150px", paddingLeft: "30px" }}>
+            <div className="col-md-6 col-sm-12" style={{ marginTop: "150px", paddingLeft: "30px" }}>
               <h1>
                 Healthy Bone Broth <br /> Ramen (Quick& Easy)
               </h1>
@@ -134,7 +139,7 @@ const LandingPage = () => {
         </div>
         <div id="popularrecipe">
           {/* Popular for you */}
-          <div className="row" style={{ marginTop: "90px" }}>
+          <div className="flex-row" style={{ marginTop: "90px" }}>
             <div className="col-1">
               <div style={{ border: "1px solid #EFC81A", backgroundColor: "#EFC81A", width: "25px", height: "140px" }}></div>
             </div>
@@ -143,14 +148,16 @@ const LandingPage = () => {
             </div>
           </div>
           {/* Popular for you */}
+          {JSON.stringify(recipes)}
           <div className="row">
             <div className="col"></div>
           </div>
         </div>
-      </div>
-      <div className="mt-5" style={{ marginTop: "3000px" }}>
-        <Footer />
-      </div>
+        {/* </div> */}
+        <div className="mt-5">
+          <Footer />
+        </div>
+      </main>
     </>
   );
 };

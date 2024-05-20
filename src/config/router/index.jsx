@@ -12,6 +12,7 @@ import ResetPassword from "../../pages/auth/ResetPassword";
 import DetailVideo from "../../pages/detailRecipe/detailVideo";
 import ReqAuth from "../../components/ReqAuth";
 import LandingPage from "../../pages/landingpage";
+import Tes from "../../pages/tes/indes";
 
 const Router = () => {
   return (
@@ -52,6 +53,7 @@ const Router = () => {
           />
           <Route path="/auth/ResetPassword" element={<ResetPassword />} />
           <Route path="/detailRecipe/detailVideo" element={<DetailVideo />} />
+          <Route path="/tes" element={<Tes />} />
         </Routes>
       </BrowserRouter>
     </div>
