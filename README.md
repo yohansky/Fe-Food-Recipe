@@ -8,6 +8,8 @@
     <a href="https://github.com/yohansky/Be-Blanja-fiber">Api Demo</a>
   </div>
 
+
+
  ## Table of Contents
 
 <details>
@@ -37,6 +39,13 @@
 
 ## About The Project
 **Mama Recipe** is here to help you cook delicious and simple meals. We offer recipes and cooking advice for home cooks, by home cooks. Mama Recipe is a web-based recipe sharing that applicaion that allow user to share their recipe, liked, and comment. Just like social media. In this app, user could take a look into recipe including it's ingredients and video step.
+
+Developer :
+<br />
+![developer](https://contributors-img.web.app/image?repo=yohansky/Fe-Food-Recipe)
+![developer](https://contributors-img.web.app/image?repo=hasbiriza/FE-Blanja)
+![developer](https://contributors-img.web.app/image?repo=kristiawan6/Be-Food-Recipe)
+![developer](https://contributors-img.web.app/image?repo=UiraAlfaZ/fe-food-recipe)
 
 
 ### Built With
@@ -93,33 +102,40 @@ REACT_APP_API_URL = [API_URL]
     <td>Register</td>
   </tr>
   <tr>
-    <td><img src=""/></td>
-    <td><img src=""/></td>
+    <td><img src="https://github.com/yohansky/Fe-Food-Recipe/assets/69236028/6f12f929-16a9-466a-a0bd-31cb0efb741e"/></td>
+    <td><img src="https://github.com/yohansky/Fe-Food-Recipe/assets/69236028/54fef761-caf6-4027-b13b-b0ee7e62688a"/></td>
   </tr>
   <tr>
     <td>LandingPage</td>
     <td>New Recipe</td>
   </tr>
     <tr>
-    <td></td>
-    <td></td>
+    <td><img src="https://github.com/yohansky/Fe-Food-Recipe/assets/69236028/bb01e02a-99d9-4f1c-b84e-e3ede7f6d675"/></td>
+    <td><img src="https://github.com/yohansky/Fe-Food-Recipe/assets/69236028/366c2348-164d-4058-ab03-faa5d7a81354"/></td>
   </tr>
     <tr>
     <td>Popular</td>
     <td>Add Recipe</td>
   </tr>
     <tr>
-    <td></td>
-    <td></td>
+    <td><img src="https://github.com/yohansky/Fe-Food-Recipe/assets/69236028/b86bdc68-d119-4bab-93d3-25bc994a5873"/></td>
+    <td><img src="https://github.com/yohansky/Fe-Food-Recipe/assets/69236028/435506a2-c1ac-4113-8e2a-10ca10a0cdbc"/></td>
   </tr>
     <tr>
     <td>Profile</td>
     <td>Detail Recipe</td>
   </tr>
     <tr>
-    <td></td>
-    <td>r</td>
+    <td><img src="https://github.com/yohansky/Fe-Food-Recipe/assets/69236028/bacc1be7-a711-4b0c-908f-0fddd555ea48"/></td>
+    <td><img src="https://github.com/yohansky/Fe-Food-Recipe/assets/69236028/53c9722f-471f-460e-9fb3-385f75b1909e"/></td>
   </tr>
+  <tr>
+    <td>Detail Video Recipe</td>
+  </tr>
+    <tr>
+    <td><img src="https://github.com/yohansky/Fe-Food-Recipe/assets/69236028/f1a7caef-9c0f-4647-86c1-dfb7fef91a8d"/></td>
+  </tr>
+    
   </table>
 </p>
 
@@ -127,3 +143,5 @@ REACT_APP_API_URL = [API_URL]
 :rocket: [`Backend Mama Recipe`](https://github.com/kristiawan6/Be-Food-Recipe)
 
 :rocket: [`Frontend Mama Recipe`](https://github.com/yohansky/Fe-Food-Recipe)
+
+
