@@ -88,7 +88,38 @@ REACT_APP_API_URL = [API_URL]
 ## Screenshoots
 <p align="center" display=flex>
   <table>
-    
+  <tr>
+    <td>Login</td>
+    <td>Register</td>
+  </tr>
+  <tr>
+    <td><img src=""/></td>
+    <td><img src=""/></td>
+  </tr>
+  <tr>
+    <td>LandingPage</td>
+    <td>New Recipe</td>
+  </tr>
+    <tr>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>Popular</td>
+    <td>Add Recipe</td>
+  </tr>
+    <tr>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>Profile</td>
+    <td>Detail Recipe</td>
+  </tr>
+    <tr>
+    <td></td>
+    <td>r</td>
+  </tr>
   </table>
 </p>
 
