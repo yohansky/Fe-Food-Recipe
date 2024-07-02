@@ -24,10 +24,10 @@ const AddRecipe = () => {
     // ambil userid dari getitem localstorage (sama seperti conditional rendering navbar di landingpage)
   }, [token, userId]);
   const [formData, setFormData] = useState({
-    Title: "",
+    Name: "",
     Ingredient: "",
     VideoUrl: "",
-    Thumbnail: "",
+    Photo: "",
   });
 
   const handleChange = (e) => {
@@ -44,16 +44,21 @@ const AddRecipe = () => {
     const dataForm = new FormData();
     dataForm.append("UserId", userId);
     //userid diambil dari getitem (local storage)
-    dataForm.append("Title", formData.Title);
+    dataForm.append("Name", formData.Name);
     dataForm.append("Ingredient", formData.Ingredient);
     dataForm.append("VideoUrl", formData.VideoUrl);
-    dataForm.append("Thumbnail", saveImage);
+    dataForm.append("Photo", saveImage);
     try {
-      await axios.post("https://be-food-recipe-prod-production.up.railway.app/api/v1/recipe/create", dataForm, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await axios.post(
+        "http://localhost:8080/recipes",
+        dataForm,
+        { withCredentials: true },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       alert("Resep berhasil Ditambahkan");
       // handleClose();
       window.location.reload();
@@ -67,39 +72,41 @@ const AddRecipe = () => {
     <>
       <NavbarProfile />
       <div style={{ marginLeft: "90px", marginRight: "90px" }}>
-        <div style={{ marginTop: "78px" }}>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-4">
-              <Form.Control name="Thumbnail" type="file" id="file-input" accept=".png,.jpg,.jpeg" style={{ backgroundColor: "#F6F5F4" }} onChange={handleUpload} />
+        <h3 className="mt-2" style={{ textAlign: "center" }}>
+          Share Your Most Delicious Food Ever Made !
+        </h3>
+        <div style={{ marginTop: "3vh" }} className="d-flex flex-row justify-content-center">
+          <Form onSubmit={handleSubmit} className="w-75">
+            <Form.Group className="mb-2">
+              <Form.Control name="Photo" type="file" id="file-input" accept=".png,.jpg,.jpeg" style={{ backgroundColor: "#F6F5F4" }} onChange={handleUpload} />
             </Form.Group>
 
-            <div className="card" style={{ marginTop: "40px" }}>
-              <Form.Control type="text" name="Title" value={formData.Title} placeholder="Title" style={{ backgroundColor: "#F6F5F4", paddingLeft: "20px" }} onChange={handleChange} required />
+            <div style={{ marginTop: "3vh" }}>
+              <Form.Control type="text" name="Name" value={formData.Name} placeholder="Name" style={{ backgroundColor: "#F6F5F4", paddingLeft: "20px" }} onChange={handleChange} required />
             </div>
-            <div className="card" style={{ marginTop: "40px" }}>
+            <div style={{ marginTop: "3vh" }}>
               <Form.Control
                 as="textarea"
                 name="Ingredient"
                 value={formData.Ingredient}
                 placeholder="Ingredients"
-                style={{ height: "380px", backgroundColor: "#F6F5F4", fontSize: "18px", paddingLeft: "20px", paddingTop: "20px" }}
+                style={{ height: "30vh", backgroundColor: "#F6F5F4", fontSize: "18px", paddingLeft: "20px", paddingTop: "20px" }}
                 onChange={handleChange}
                 required
               />
             </div>
-            <div className="card" style={{ marginTop: "40px" }}>
+            <div style={{ marginTop: "3vh" }}>
               <Form.Control type="text" name="VideoUrl" value={formData.VideoUrl} placeholder="Video" style={{ backgroundColor: "#F6F5F4", fontSize: "18px", paddingLeft: "20px" }} onChange={handleChange} required />
             </div>
-
-            <div style={{ marginTop: "123px", marginLeft: "433px" }}>
-              <Button type="submit" variant="warning" size="lg" style={{ width: "426px", height: "64px" }}>
+            <div style={{ marginTop: "3vh", textAlign: "center" }}>
+              <Button type="submit" variant="warning" size="lg" style={{ width: "15vw", height: "7vh" }}>
                 Post
               </Button>
             </div>
           </Form>
         </div>
       </div>
-      <div style={{ marginTop: "100px" }}>
+      <div style={{ marginTop: "5vh" }}>
         <Footer />
       </div>
     </>

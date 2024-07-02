@@ -38,9 +38,9 @@ const Router = () => {
             // path="/detailRecipe/:id"
             path="/detailRecipe"
             element={
-              <ReqAuth>
-                <DetailRecipe />
-              </ReqAuth>
+              // <ReqAuth>
+              <DetailRecipe />
+              // </ReqAuth>
             }
           />
           <Route

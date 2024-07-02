@@ -4,6 +4,7 @@ import logobg from "../../../assets/img/bglogin.png";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [token, setToken] = useState();
@@ -14,39 +15,62 @@ const Login = () => {
     Password: "",
   });
 
-  function handleSubmit(e) {
-    //untuk ambil user id harus taruh di handlesubmit, bukan di useeffect
-    e.preventDefault();
-    axios
-      .post(`https://be-food-recipe-prod-production.up.railway.app/login`, formData)
-      .then((res) => {
-        console.log(res.data.UserId);
-        localStorage.setItem("userid", res.data.UserId);
-        //ambil userid ddari respon
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prevFormData) => ({
+  //     ...prevFormData,
+  //     [name]: value,
+  //   }));
+  //   console.log(formData);
+  // };
 
-    setToken("token");
-    localStorage.setItem("token", Date.now());
-    navigate("/landingpage");
+  function handleChange(e) {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   }
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-    console.log(formData);
-  };
-
   useEffect(() => {
+    setToken(localStorage.getItem("token"));
     if (token) {
       navigate("/landingpage");
     }
-  }, [token]);
+  }, [navigate]);
+
+  const handleSubmit = async (e) => {
+    //untuk ambil user id harus taruh di handlesubmit, bukan di useeffect
+    e.preventDefault();
+    try {
+      axios.post(`http://localhost:8080/login`, formData, { withCredentials: true }).then((res) => {
+        console.log(res.data.UserId);
+        localStorage.setItem("token", res.data.Token);
+        localStorage.setItem("userid", res.data.Id);
+        //ambil userid ddari respon
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful",
+        });
+        navigate("/landingpage");
+      });
+    } catch (error) {
+      if (error.response) {
+        Swal.fire({
+          icon: "error",
+          title: "Login error",
+          text: error.response.data.message,
+        });
+        console.error("Login error:", error.response.data);
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Login Error",
+          text: "An error occurred while processing your request. Please try again later.",
+        });
+        console.error("Login error:", error);
+      }
+    }
+  };
 
   return (
     <>

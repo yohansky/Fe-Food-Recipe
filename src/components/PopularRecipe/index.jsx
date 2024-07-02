@@ -8,7 +8,7 @@ const PopularRecipe = () => {
 
   useEffect(() => {
     axios
-      .get(`https://food-recipe-api-production.up.railway.app/api/v1/recipe/data`)
+      .get(`http://localhost:8080/recipes`)
       .then((res) => {
         setRecipes(res.data.data);
       })

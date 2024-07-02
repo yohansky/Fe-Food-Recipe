@@ -28,11 +28,11 @@ const Profile = () => {
   return (
     <div>
       <NavbarProfile />
-      <div style={{ marginTop: "204px", marginLeft: "674px" }}>
+      <div style={{ marginTop: "5vh", marginLeft: "600px" }}>
         <img src={profilepic} alt="profilepic" />
         {/* <Button style={{ backgroundColor: "white", position: "absolute", height: "20px", borderColor: "white" }}></Button> */}
-        <div style={{ marginTop: "20px", marginLeft: "50px" }}>
-          <Accordion>
+        <div style={{ marginTop: "20px" }}>
+          <Accordion style={{ width: "200px" }}>
             <Accordion.Item eventKey="0">
               <Accordion.Header>Edit</Accordion.Header>
               <Accordion.Body>Change Photo Profile</Accordion.Body>
@@ -43,49 +43,48 @@ const Profile = () => {
             </Accordion.Item>
           </Accordion>
         </div>
-        <h4 style={{ fontWeight: "500", fontSize: "24px", marginTop: "40px" }}>Garneta Sharina</h4>
+        <h4 style={{ fontWeight: "500", fontSize: "24px", marginTop: "20px" }}>Garneta Sharina</h4>
       </div>
       {/*  */}
-      <div style={{ marginTop: "100px", marginLeft: "125px" }}>
+      <div style={{ marginTop: "5vh", marginLeft: "125px" }}>
         <Tab.Container activeKey={activeTab} onSelect={(key) => setActiveTab(key)}>
-          <Nav variant="tabs" defaultActiveKey="link-1" style={{}}>
+          <Nav variant="tabs" defaultActiveKey="link-1" style={{ width: "1100px" }}>
             <Nav.Item>
-              <Nav.Link eventKey="link-1" style={{ fontWeight: "500", fontSize: "24px", color: "black" }}>
+              <Nav.Link eventKey="link-1" style={{ color: "black" }}>
                 My Recipe
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-2" style={{ fontWeight: "500", fontSize: "24px", color: "black", marginLeft: "100px" }}>
+              <Nav.Link eventKey="link-2" style={{ color: "black", marginLeft: "100px" }}>
                 Saved Recipe
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-3" style={{ fontWeight: "500", fontSize: "24px", color: "black", marginLeft: "100px" }}>
+              <Nav.Link eventKey="link-3" style={{ color: "black", marginLeft: "100px" }}>
                 Liked Recipe
               </Nav.Link>
             </Nav.Item>
           </Nav>
-          <div style={{ marginTop: "50px", marginLeft: "20px" }}>
+          <div style={{ marginTop: "5vh", marginLeft: "20px" }}>
             <Tab.Content>
               <Tab.Pane eventKey="link-1">
-                <h3>Halaman My Recipe</h3>
+                {/* <h3>Halaman My Recipe</h3> */}
                 <div className="row">
                   <div className="col-4">
                     <div className="card" style={{ width: "370px", height: "250px" }}>
                       <img src={recipe1} alt="recipe1" />
-                      <h4 style={{ zIndex: "1", position: "absolute", marginTop: "150px", marginLeft: "25px", color: "#FFF5EC", fontSize: "28px", fontWeight: "500" }}>Bomb Chicken</h4>
+                      <h4 style={{ zIndex: "1", position: "absolute", marginTop: "150px", marginLeft: "25px", color: "#FFF5EC", fontSize: "28px", fontWeight: "500" }}>Donat</h4>
                     </div>
                   </div>
                   <div className="col-4">
                     <div className="card" style={{ width: "370px", height: "250px" }}>
                       <img src={recipe2} alt="recipe2" />
-                      <h4 style={{ zIndex: "1", position: "absolute", marginTop: "150px", marginLeft: "25px", color: "#FFF5EC", fontSize: "28px", fontWeight: "500" }}>Bananas Pancake</h4>
+                      <h4 style={{ zIndex: "1", position: "absolute", marginTop: "150px", marginLeft: "25px", color: "#FFF5EC", fontSize: "28px", fontWeight: "500" }}>Pancake Pisang</h4>
                     </div>
                   </div>
                 </div>
               </Tab.Pane>
               <Tab.Pane eventKey="link-2">
-                <h3>Halaman Saved Recipe</h3>
                 <div className="row">
                   <div className="col-4">
                     <div className="card" style={{ width: "370px", height: "250px" }}>
@@ -102,7 +101,6 @@ const Profile = () => {
                 </div>
               </Tab.Pane>
               <Tab.Pane eventKey="link-3">
-                <h3>Halaman Liked Recipe</h3>
                 <div className="row">
                   <div className="col-4">
                     <div className="card" style={{ width: "370px", height: "250px" }}>

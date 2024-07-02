@@ -14,14 +14,15 @@ import * as Icons from "react-feather";
 
 const DetailRecipe = () => {
   const [recipes, setRecipes] = useState([]);
-
   const { id } = useParams();
+  const userId = localStorage.getItem("userid");
 
   useEffect(() => {
     axios
-      .get(`https://food-recipe-api-production.up.railway.app/api/v1/recipe/${id}`)
+      .get(`http://localhost:8080/recipe/${id}`)
       .then((res) => {
-        setRecipes(res.data.data);
+        console.log(res.data);
+        setRecipes(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -35,10 +36,10 @@ const DetailRecipe = () => {
       {/* {JSON.stringify(recipes)} */}
       <main id="detail">
         <div style={{ marginLeft: "180px", marginRight: "90px" }}>
-          <div className="text-center" style={{ marginTop: "100px" }}>
-            <h1 className="mb-4">Loream Sandwich</h1>
-            <div className="mb-3">
-              <img src={recipe} alt="gambar" style={{ left: "250px", top: "290px", width: "600px", height: "400px" }} />
+          <div className="text-center" style={{ marginTop: "2vh" }}>
+            <h2 className="mb-2">Sandwich Telur</h2>
+            <div className="mb-2">
+              <img src={recipe} alt="gambar" style={{ left: "250px", top: "290px", width: "500px", height: "260px" }} />
             </div>
             <div className="mx-auto">
               <button className="btn">
@@ -50,35 +51,42 @@ const DetailRecipe = () => {
               </button>
             </div>
           </div>
-          <div className="mt-5">
-            <h2 style={{ marginTop: "50px" }}>Ingredients</h2>
-            <h3 style={{ marginTop: "25px" }}>
-              - 2 Eggs <br />
-              - 2 Tbsp Mayonnaise <br />
-              - 3 Slices Bread <br />
-              - A Little Butter <br />
-              - 1/3 Carton Of Cress <br />
-              - 2-3 Slices Of Tomato Or A Lettuce <br />
-              - Crisps, To Serve <br />
-            </h3>
+          <div className="row">
+            <div className="col-8" style={{ paddingLeft: "5vw" }}>
+              <div className="mt-2">
+                <h3>Ingredients</h3>
+                <h5>
+                  - 2 Eggs <br />
+                  - 2 Tbsp Mayonnaise <br />
+                  - 3 Slices Bread <br />
+                  - A Little Butter <br />
+                  - 1/3 Carton Of Cress <br />
+                  - 2-3 Slices Of Tomato Or A Lettuce <br />
+                  - Crisps, To Serve <br />
+                </h5>
+              </div>
+            </div>
+            <div className="col-4">
+              <div className="mt-2">
+                <h2>Video Step</h2>
+                <Link to={"/detailRecipe/detailVideo"}>
+                  <Button className="rounded mt-1" style={{ backgroundColor: "#EFC81A", width: "300px", height: "75px" }}>
+                    <div className="text-center">
+                      <img src={play} alt="" />
+                    </div>
+                  </Button>
+                </Link>
+              </div>
+            </div>
           </div>
-          <div className="mt-5">
-            <h2 style={{ marginTop: "50px" }}>Video Step</h2>
-            <Link to={"/detailRecipe/detailVideo"}>
-              <Button className="rounded mt-3" style={{ backgroundColor: "#EFC81A", width: "300px", height: "75px" }}>
-                <div className="text-center">
-                  <img src={play} alt="" />
-                </div>
-              </Button>
-            </Link>
-          </div>
-          <div className="mt-5">
-            <Form style={{ marginTop: "100px" }}>
-              <Form.Control as="textarea" placeholder="Comment :" style={{ width: "100%", height: "380px", backgroundColor: "#F6F5F4", fontSize: "24px", paddingLeft: "40px", paddingTop: "35px" }} />
+
+          <div className="mt-3">
+            <Form>
+              <Form.Control as="textarea" placeholder="Comment :" style={{ width: "100%", height: "120px", backgroundColor: "#F6F5F4", fontSize: "18px", paddingLeft: "40px", paddingTop: "35px" }} />
             </Form>
           </div>
           <div className="mt-5">
-            <h2>Comment</h2>
+            <h4>Comment</h4>
             <div className="row mt-4">
               <div className="col-1">
                 <img src={miniprofile} alt="miniprofile" />
